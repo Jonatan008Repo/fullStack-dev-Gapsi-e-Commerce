@@ -6,10 +6,15 @@ class DataBaseService {
    * @description Obtiene los proveedores de json
    *
    */
-  getProveedores() {
+  getProveedores(limit, offset) {
+    console.log("🟢 | file: db.service.js:10 | offset:", offset);
+    console.log("🟢 | file: db.service.js:10 | limit:", limit);
     try {
       const data = require('../bd.json');
-      return data;
+      const page = offset || 1;
+      const skip = (page - 1) * limit;
+      const data2 = data.slice(skip, skip + limit);
+      return data2;
     } catch (error) {
       console.error("💢 | file: db.service.js:getProveedores| error:", error);
     }
@@ -67,6 +72,8 @@ class DataBaseService {
           }
         });
         const data2 = require('../bd.json');
+
+
         return data2;
       } else {
         console.log("El proveedor no existe en la base de datos.");
@@ -76,6 +83,5 @@ class DataBaseService {
       console.error("💢 | file: db.service.js:deleteProveedor | error:", error);
     }
   }
-
-  }
+}
 module.exports = DataBaseService;

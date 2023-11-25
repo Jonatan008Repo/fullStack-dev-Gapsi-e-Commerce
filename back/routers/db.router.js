@@ -10,7 +10,8 @@ const dbService = new DataBaseService();
  */
 db.get('/proveedores', async (req, res, next) => {
   try {
-    const proveedores = dbService.getProveedores();
+    const { limit, offset } = req.query;
+    const proveedores = dbService.getProveedores(limit, offset);
     res.status(201).json(proveedores);
   } catch (error) {
     next(boom.badRequest(error));

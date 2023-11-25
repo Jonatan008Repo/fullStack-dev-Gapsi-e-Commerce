@@ -37,16 +37,15 @@ export function Home() {
       <Header style={{ alignSelf: 'flex-start' }} />
 
       {data ? (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <img src="../assets/img/101581397.png" alt="imagen" />
-          <p>{data.message} </p>
-          <p>0{data.numero}</p>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <img src="../assets/img/101581397.png" alt="imagen" style={{ width: '100px', height: '100px' }} />
+          <p>{data.message}  0{data.numero}</p>
           <Button
             id="btn-google"
             variant="outlined"
             size="large"
             onClick={handelList}
-          >
+          >Continuar
           </Button>
         </div>
       ) : (<p>no hay datos</p>)
