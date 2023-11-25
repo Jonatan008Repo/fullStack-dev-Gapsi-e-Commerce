@@ -3,7 +3,7 @@ const appApi = require('./routers/app.js');
 const cors = require("cors");
 //const http = require("http");
 const app = express();
-const port = 3000;
+const port = 3001;
 
 const whitelist = ["http://localhost:3001", "http://localhost:3000",]
 const options = {
